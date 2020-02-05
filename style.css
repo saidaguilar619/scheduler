@@ -1,3 +1,7 @@
+ .mainContainer{
+   background-image: url("https://images.homedepot-static.com/productImages/f274765b-06e4-4d70-974c-1ea2f5d7dcdb/svn/brewster-wallpaper-3097-02-64_1000.jpg");
+
+ }
  body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -16,15 +20,7 @@
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
-}
-
-.description{
-  white-space: pre-wrap;
-}
-
-.time-block{
-  text-align: center;
-  border-radius: 15px;
+  margin: 0;
 }
 
 .row {
