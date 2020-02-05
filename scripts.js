@@ -10,24 +10,28 @@ function setCalander(){
         let newHourH1 = $("<h1>");
         let displayHour = timeArr[i];
         let blockTimeStart = timeStart;
-        let currentBlock = "block" + i;
+        let eventBoxNum = "eventBox" + i;
+        let eventBN = ".eventBox" + i;
 
         let saveButton = $("<img>").attr("src", "https://cdn3.iconfinder.com/data/icons/ui-essential-elements-buttons/110/Save-512.png");
         saveButton.attr("width", "50px");
         saveButton.attr("height", "50px");
-        $(".saveBtn").attr("value", i)
-        console.log(i);
+        
 
         saveButton.css("margin-left", "11%");
         saveButton.css("margin-top", "3%");
 
         let newRowEl = $("<div>").addClass("row");
         $(".container").append(newRowEl);
-        let newP = $("<p>").addClass("eventInfo");
-        newP.text(localStorage.currentBlock);
+        // let newP = $("<p>").addClass("eventInfo");
+        // newP.val(localStorage.getItem(eventBN));
 
         let newHourEl = $("<div>").addClass("hour col-2");
         let newEventBlock = $("<input>").addClass("eventBlock col-8");
+        newEventBlock.val(localStorage.getItem(eventBN));
+        console.log(localStorage.eventBN);
+        newEventBlock.attr("id", i);
+        newEventBlock.addClass(eventBoxNum);
         
         if(currentTime == blockTimeStart )
         {
@@ -42,23 +46,24 @@ function setCalander(){
             newEventBlock.addClass("past");
         }
 
-        let newSaveBtn = $("<button>").addClass("saveBtn col-2");
+        let newSaveBtn = $("<button>").addClass("saveButton col-2");
+        newSaveBtn.attr("id", i);
         newSaveBtn.append(saveButton);
+
         newRowEl.append(newHourEl, newEventBlock, newSaveBtn);
         newHourEl.append(newHourH1);
-    
         newHourH1.text(displayHour);
         timeStart++;
     }
 }
+setCalander();  
 
-// function savetoLocal(box, discription){
-//     let boxNum = "box" + box;
-//     localStorage.setItem(boxNum, discription);
-// }
-
-setCalander();
-$(".saveBtn").on("click", function(){
-    let boxNum = "box" + box;
+$(".saveButton").on("click", function(event){
+    
+    let ebox = this.id;
+    let boxNum = ".eventBox" + ebox; 
+    let discription = $(boxNum).val();
+    
+    console.log(discription);
     localStorage.setItem(boxNum, discription);
 })
