@@ -16,11 +16,12 @@
 
 .jumbotron {
   text-align: center;
-  background-color: transparent;
+  background-color: rgb(238, 238, 238);
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
   margin: 0;
+
 }
 
 .row {
